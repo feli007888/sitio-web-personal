@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- aca se pone el titulo de la pagina que aparece en la pestaña asi como el logo, y se setea en el lenguaje y caracteres-->
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felipe Torterolo</title>
+    <link rel="icon" type="image/avif" href="{% static 'portfolio/imagenes/logotipo-vector-ft_809747-336.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+</head>
+<body class="modo-oscuro">
+    <!-- barra de navegacion con las distintas secciones y el modo oscuro -->
+    <nav class="barra-navegacion">
+        <a href="#habilidades">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+        <!-- Botón que cambia las clases de tema del body. -->
+        <button type="button" class="boton-tema" id="boton-tema" aria-pressed="false" aria-label="Cambiar a modo claro">
+            <img src="{% static 'portfolio/imagenes/circle-half-stroke-solid-full.svg' %}" alt="" aria-hidden="true" class="icono-tema">
+        </button>
+    </nav>
+<!-- secciones -->
+    <!-- mi nombre y foto -->
+    <section id = "yo">
+        <div class="container-fluid">
+
+            <div class="row align-items-center mt-4">
+                <div class="col-md-4">
+                    <img src="{% static 'portfolio/imagenes/licensed-image.jfif' %}" alt="Foto de perfil" class="img-fluid imagen-principal">
+                </div>
+                <div class="col-md-6">
+                    <h1 class="display-1 text-white hero-name">Felipe</h1>
+                    <h1 class="display-1 text-white hero-name">Torterolo</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- habilidades -->
+    <section id="habilidades" class="skills-section">
+        <div class="container">
+            <p class="skills-eyebrow">Lo que uso</p>
+            <h2 class="skills-title">Mis habilidades</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-sm-6 col-lg-4">
+                    <article class="card skill-card h-100">
+                        <div class="card-body">
+                            <span class="skill-number">01</span>
+                            <h3 class="card-title">Python</h3>
+                            <p class="card-text">Desarrollo de soluciones y lógica de programación.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="card skill-card h-100">
+                        <div class="card-body">
+                            <span class="skill-number">02</span>
+                            <h3 class="card-title">HTML</h3>
+                            <p class="card-text">Estructuras web claras, semánticas y ordenadas.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="card skill-card h-100">
+                        <div class="card-body">
+                            <span class="skill-number">03</span>
+                            <h3 class="card-title">CSS</h3>
+                            <p class="card-text">Diseños responsivos con atención a los detalles.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="card skill-card h-100">
+                        <div class="card-body">
+                            <span class="skill-number">04</span>
+                            <h3 class="card-title">SQL</h3>
+                            <p class="card-text">Utilizado para el diseño de bases de datos.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="card skill-card h-100">
+                        <div class="card-body">
+                            <span class="skill-number">05</span>
+                            <h3 class="card-title">Photopea</h3>
+                            <p class="card-text">Lo utilizo para la edicion de imagenes y creacion de las mismas.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- mis proyectos -->
+    <section id = "proyectos">
+        <h2 class="titulo-proyectos">Proyectos</h2>
+        <a href="https://github.com/feli007888/tp2">
+            <img src="{% static 'portfolio/imagenes/curiosidades-pokemon.jpg' %}" alt="Imagen" class="img-fluid imagen-proyecto">
+            <div class="descripcion-proyecto">
+            <h3>Pokemon</h3>
+            <p>
+                Este fue un proyecto elaborado enteramente con python el cual no posee una interfaz grafica aparte sino que se ejecuta en la consola.
+            </p>
+            </div>
+        </a>
+        <a href="https://github.com/feli007888/TP">
+            <img src="{% static 'portfolio/imagenes/juego-escape.png' %}" alt="Imagen" class="img-fluid imagen-proyecto">
+            <div class="descripcion-proyecto">
+                <h3>Juego Escape</h3>
+                <p>Este juego fue desarrollado en conjunto con edu00198 y LRojic, el objetivo del juego es escapar
+                    de una dungeon. El formato del juego es en 2d y cuenta con un moodo historia.
+                </p>
+            </div>
+        </a>
+        <a href="https://github.com/edu00198/Juego-escape">
+            <img src="{% static 'portfolio/imagenes/mapa-terremoto.png' %}" alt="Imagen" class="img-fluid imagen-proyecto">
+            <div class="descripcion-proyecto">
+                <h3>Mapa Terremoto</h3>
+                <p>Este proyecto consistio en desarrollar una pagina web que mostrara los terremotos ocurridos en las ultimas 24 horas, utilize tkinter y dash.</p>
+            </div>
+        </a>
+
+    </section>
+    
+    <!-- formulario para agendar una reunion -->
+    <section id="contacto">
+        <div class="contacto-contenido">
+            <p class="skills-eyebrow">Hablemos</p>
+            <h2 class="contacto-titulo">Agenda una reunión</h2>
+            <p class="contacto-texto">Contame sobre tu idea y coordinamos un momento para conversar.</p>
+            <form class="formulario-reunion">
+                <div class="campos-formulario">
+                    <div class="campo-formulario">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="nombre@email.com" required>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="tipo-reunion">Motivo de la reunión</label>
+                        <select id="tipo-reunion" name="tipo-reunion" required>
+                            <option value="" selected disabled>Seleccioná una opción</option>
+                            <option>Proyecto web</option>
+                            <option>Consulta técnica</option>
+                            <option>Propuesta de trabajo</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="fecha">Fecha preferida</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="hora">Horario preferido</label>
+                        <input type="time" id="hora" name="hora" required>
+                    </div>
+                    <div class="campo-formulario campo-mensaje">
+                        <label for="mensaje">Contame brevemente tu idea</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿En qué puedo ayudarte?"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="boton-reunion">Solicitar reunión</button>
+            </form>
+        </div>
+    </section>
+    
+    
+    <!-- footer -->
+    <footer class="footer-principal text-center p-4">
+        <p>Contacto</p>
+        <a href="https://instagram.com/felitorte" class="mx-2"><img src="{% static 'portfolio/imagenes/instagram-brands-solid-full.svg' %}" alt="Instagram" class="icono-footer icono-instagram"></a>
+        <a href="#" class="mx-2"><img src="{% static 'portfolio/imagenes/github-brands-solid-full.svg' %}" alt="GitHub" class="icono-footer icono-github"></a>
+        <a href="{% static 'portfolio/imagenes/cv.png' %}" target="_blank" class="mx-2"><img src="{% static 'portfolio/imagenes/linkedin-brands-solid-full.svg' %}" alt="Ver currículum" class="icono-footer icono-linkedin"></a>
+        <p class="text-center">&copy; 2026 Felipe Torterolo. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        // 
+        const botonTema = document.querySelector('#boton-tema');
+
+        botonTema.addEventListener('click', () => {
+            const esClaro = document.body.classList.toggle('modo-claro');
+            document.body.classList.toggle('modo-oscuro', !esClaro);
+            botonTema.setAttribute('aria-pressed', esClaro);
+            botonTema.setAttribute('aria-label', esClaro ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
+        });
+    </script>
+</body>
+</html>
