@@ -1,33 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "layout.html" %}
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+
+{% block title %}Blog | Felipe Torterolo{% endblock %}
+
+{% block page_styles %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body class="modo-oscuro">
-    <nav class="barra-navegacion">
-        <a href="{% url 'inicio' %}">Inicio</a>
-        <a href="{% url 'blog' %}" aria-current="page">Blog</a>
-        <button type="button" class="boton-tema" id="boton-tema" aria-pressed="false" aria-label="Cambiar a modo claro">
-            <img src="{% static 'portfolio/imagenes/circle-half-stroke-solid-full.svg' %}" alt="" aria-hidden="true" class="icono-tema">
-        </button>
-    </nav>
+{% endblock %}
+
+{% block nav_links %}
+    <a href="{% url 'inicio' %}">Inicio</a>
+    <a href="{% url 'blog' %}" aria-current="page">Blog</a>
+{% endblock %}
+
+{% block content %}
     <main class="contenido-blog">
-        <h1>¡Hola! Bienvenido a mi blog.</h1>
+        <h1>Bienvenido a mi blog.</h1>
         <p>Próximamente</p>
     </main>
-    <script>
-        const botonTema = document.querySelector('#boton-tema');
-
-        botonTema.addEventListener('click', () => {
-            const esClaro = document.body.classList.toggle('modo-claro');
-            document.body.classList.toggle('modo-oscuro', !esClaro);
-            botonTema.setAttribute('aria-pressed', esClaro);
-            botonTema.setAttribute('aria-label', esClaro ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
-        });
-    </script>
-</body>
-</html>
+{% endblock %}

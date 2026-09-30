@@ -1,28 +1,22 @@
-<!DOCTYPE html>
-<html lang="es">
-<!-- aca se pone el titulo de la pagina que aparece en la pestaña asi como el logo, y se setea en el lenguaje y caracteres-->
+{% extends "layout.html" %}
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felipe Torterolo</title>
-    <link rel="icon" type="image/avif" href="{% static 'portfolio/imagenes/logotipo-vector-ft_809747-336.png' %}">
+
+{% block title %}Felipe Torterolo{% endblock %}
+
+{% block page_styles %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
-</head>
-<body class="modo-oscuro">
-    <!-- barra de navegacion con las distintas secciones y el modo oscuro -->
-    <nav class="barra-navegacion">
-        <a href="#habilidades">Sobre mí</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#contacto">Contacto</a>
-        <a href="{% url 'blog' %}">Blog</a>
-        <!-- Botón que cambia las clases de tema del body. -->
-        <button type="button" class="boton-tema" id="boton-tema" aria-pressed="false" aria-label="Cambiar a modo claro">
-            <img src="{% static 'portfolio/imagenes/circle-half-stroke-solid-full.svg' %}" alt="" aria-hidden="true" class="icono-tema">
-        </button>
-    </nav>
-<!-- secciones -->
+{% endblock %}
+
+{% block nav_links %}
+    <a href="#habilidades">Sobre mí</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
+    <a href="{% url 'blog' %}">Blog</a>
+{% endblock %}
+
+{% block content %}
+    <!-- secciones -->
     <!-- mi nombre y foto -->
     <section id = "yo">
         <div class="container-fluid">
@@ -169,24 +163,4 @@
     </section>
     
     
-    <!-- footer -->
-    <footer class="footer-principal text-center p-4">
-        <p>Contacto</p>
-        <a href="https://instagram.com/felitorte" class="mx-2"><img src="{% static 'portfolio/imagenes/instagram-brands-solid-full.svg' %}" alt="Instagram" class="icono-footer icono-instagram"></a>
-        <a href="#" class="mx-2"><img src="{% static 'portfolio/imagenes/github-brands-solid-full.svg' %}" alt="GitHub" class="icono-footer icono-github"></a>
-        <a href="{% static 'portfolio/imagenes/cv.png' %}" target="_blank" class="mx-2"><img src="{% static 'portfolio/imagenes/linkedin-brands-solid-full.svg' %}" alt="Ver currículum" class="icono-footer icono-linkedin"></a>
-        <p class="text-center">&copy; 2026 Felipe Torterolo. Todos los derechos reservados.</p>
-    </footer>
-    <script>
-        // 
-        const botonTema = document.querySelector('#boton-tema');
-
-        botonTema.addEventListener('click', () => {
-            const esClaro = document.body.classList.toggle('modo-claro');
-            document.body.classList.toggle('modo-oscuro', !esClaro);
-            botonTema.setAttribute('aria-pressed', esClaro);
-            botonTema.setAttribute('aria-label', esClaro ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
-        });
-    </script>
-</body>
-</html>
+{% endblock %}
