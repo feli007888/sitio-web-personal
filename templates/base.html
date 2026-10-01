@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Felipe Torterolo{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'portfolio/imagenes/logotipo-vector-ft_809747-336.png' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block page_styles %}{% endblock %}
+</head>
+<body class="modo-oscuro">
+    <nav class="barra-navegacion" aria-label="Navegación principal">
+        {% block nav_links %}{% endblock %}
+        <button type="button" class="boton-tema" id="boton-tema" aria-pressed="false" aria-label="Cambiar a modo claro">
+            <img src="{% static 'portfolio/imagenes/circle-half-stroke-solid-full.svg' %}" alt="" aria-hidden="true" class="icono-tema">
+        </button>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer-principal">
+        <p>Contacto</p>
+        <a href="https://instagram.com/felitorte" class="enlace-footer"><img src="{% static 'portfolio/imagenes/instagram-brands-solid-full.svg' %}" alt="Instagram" class="icono-footer icono-instagram"></a>
+        <a href="#" class="enlace-footer"><img src="{% static 'portfolio/imagenes/github-brands-solid-full.svg' %}" alt="GitHub" class="icono-footer icono-github"></a>
+        <a href="{% static 'portfolio/imagenes/cv.png' %}" target="_blank" rel="noopener noreferrer" class="enlace-footer"><img src="{% static 'portfolio/imagenes/linkedin-brands-solid-full.svg' %}" alt="Ver currículum" class="icono-footer icono-linkedin"></a>
+        <p>&copy; 2026 Felipe Torterolo. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const botonTema = document.querySelector('#boton-tema');
+
+        botonTema.addEventListener('click', () => {
+            const esClaro = document.body.classList.toggle('modo-claro');
+            document.body.classList.toggle('modo-oscuro', !esClaro);
+            botonTema.setAttribute('aria-pressed', esClaro);
+            botonTema.setAttribute('aria-label', esClaro ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
+        });
+    </script>
+</body>
+</html>
