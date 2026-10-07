@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ entrada.titulo }} | Blog{% endblock %}
+
+{% block page_styles %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+{% endblock %}
+
+{% block nav_links %}
+    <a href="{% url 'inicio' %}">Inicio</a>
+    <a href="{% url 'blog' %}" aria-current="page">Blog</a>
+{% endblock %}
+
+{% block content %}
+    <main class="contenido-blog">
+        <article class="entrada-detalle">
+            <a class="entrada-volver" href="{% url 'blog' %}">← Volver al blog</a>
+            <p class="skills-eyebrow">Publicado el {{ entrada.fecha_publicacion|date:"d/m/Y" }}</p>
+            <h1 class="skills-title">{{ entrada.titulo }}</h1>
+            {% if entrada.imagen %}
+                <img class="entrada-detalle-imagen" src="{{ entrada.imagen.url }}" alt="Imagen de {{ entrada.titulo }}">
+            {% endif %}
+            <div class="entrada-detalle-contenido">{{ entrada.contenido|linebreaks }}</div>
+        </article>
+    </main>
+{% endblock %}

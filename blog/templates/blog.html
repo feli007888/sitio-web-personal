@@ -1,10 +1,12 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 {% load static %}
 
 {% block title %}Blog | Felipe Torterolo{% endblock %}
 
 {% block page_styles %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
 {% endblock %}
 
 {% block nav_links %}
@@ -14,7 +16,32 @@
 
 {% block content %}
     <main class="contenido-blog">
-        <h1>Bienvenido a mi blog.</h1>
-        <p>Próximamente</p>
+        <div class="contenedor-entradas">
+            <p class="skills-eyebrow">Ideas y experiencias</p>
+            <h1 class="skills-title">Mi blog</h1>
+            {% if entradas %}
+                <div class="row g-4 mt-2">
+                    {% for entrada in entradas %}
+                        <div class="col-sm-6 col-lg-4">
+                            <a class="entrada-enlace" href="{% url 'detalle_entrada' entrada.id %}">
+                                <article class="card skill-card entrada-card h-100">
+                                    {% if entrada.imagen %}
+                                        <img class="entrada-imagen" src="{{ entrada.imagen.url }}" alt="Imagen de {{ entrada.titulo }}">
+                                    {% endif %}
+                                    <div class="card-body">
+                                        <span class="skill-number">{{ entrada.fecha_publicacion|date:"d/m/Y" }}</span>
+                                        <h2 class="card-title">{{ entrada.titulo }}</h2>
+                                        <p class="card-text entrada-contenido">{{ entrada.contenido|linebreaksbr }}</p>
+                                    </div>
+                                </article>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="blog-vacio">TodavÃ­a no hay publicaciones. Pronto compartirÃ© novedades.</p>
+            {% endif %}
+        </div>
     </main>
 {% endblock %}
+
