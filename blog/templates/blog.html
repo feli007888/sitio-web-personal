@@ -12,6 +12,7 @@
 {% block nav_links %}
     <a href="{% url 'inicio' %}">Inicio</a>
     <a href="{% url 'blog' %}" aria-current="page">Blog</a>
+    <a href="{% url 'admin:index' %}">Admin</a>
 {% endblock %}
 
 {% block content %}
@@ -39,7 +40,7 @@
                     {% endfor %}
                 </div>
             {% else %}
-                <p class="blog-vacio">TodavÃ­a no hay publicaciones. Pronto compartirÃ© novedades.</p>
+                <p class="blog-vacio">Todavía no hay publicaciones. Pronto compartiré novedades.</p>
             {% endif %}
         </div>
     </main>

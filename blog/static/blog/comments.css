@@ -1,0 +1,49 @@
+/* Estilos cargados después de Bootstrap y de la hoja del portfolio. */
+body.modo-oscuro .comentarios {
+    background-color: #12243A;
+    color: #FFFFFF;
+}
+
+body.modo-oscuro .comentarios .comentario h3,
+body.modo-oscuro .comentarios .comentario-nombre,
+body.modo-oscuro .comentarios .comentario p,
+body.modo-oscuro .comentarios .campo-comentario label,
+body.modo-oscuro .comentarios .formulario-comentario,
+body.modo-oscuro .comentarios .formulario-comentario .errorlist {
+    color: #FFFFFF !important;
+}
+
+body.modo-oscuro .comentarios .campo-comentario input,
+body.modo-oscuro .comentarios .campo-comentario textarea {
+    background-color: #0F172A !important;
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF;
+    caret-color: #FFFFFF;
+}
+
+body.modo-claro .comentarios {
+    background-color: #F8FAFC;
+    color: #0F172A;
+}
+
+body.modo-claro .comentarios .comentario h3,
+body.modo-claro .comentarios .comentario-nombre,
+body.modo-claro .comentarios .comentario p,
+body.modo-claro .comentarios .campo-comentario label,
+body.modo-claro .comentarios .formulario-comentario,
+body.modo-claro .comentarios .formulario-comentario .errorlist {
+    color: #0F172A !important;
+}
+
+body.modo-claro .comentarios .comentario time,
+body.modo-claro .comentarios .comentarios-vacios {
+    color: #475569 !important;
+}
+
+body.modo-claro .comentarios .campo-comentario input,
+body.modo-claro .comentarios .campo-comentario textarea {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+    -webkit-text-fill-color: #0F172A;
+    caret-color: #0F172A;
+}

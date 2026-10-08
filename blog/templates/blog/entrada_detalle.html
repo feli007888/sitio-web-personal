@@ -7,11 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/comments.css' %}">
 {% endblock %}
 
 {% block nav_links %}
     <a href="{% url 'inicio' %}">Inicio</a>
     <a href="{% url 'blog' %}" aria-current="page">Blog</a>
+    <a href="{% url 'admin:index' %}">Admin</a>
 {% endblock %}
 
 {% block content %}
@@ -25,5 +27,35 @@
             {% endif %}
             <div class="entrada-detalle-contenido">{{ entrada.contenido|linebreaks }}</div>
         </article>
+
+        <section class="comentarios" aria-labelledby="comentarios-titulo">
+            <h2 id="comentarios-titulo">Comentarios ({{ comentarios|length }})</h2>
+            {% for comentario in comentarios %}
+                <article class="comentario">
+                    <h3 class="comentario-nombre">{{ comentario.nombre }}</h3>
+                    <time datetime="{{ comentario.fecha_creacion|date:'c' }}">{{ comentario.fecha_creacion|date:"d/m/Y H:i" }}</time>
+                    <p>{{ comentario.texto|linebreaksbr }}</p>
+                </article>
+            {% empty %}
+                <p class="comentarios-vacios">Todavía no hay comentarios. ¡Sé el primero!</p>
+            {% endfor %}
+
+            <h2>Dejá tu comentario</h2>
+            <form class="formulario-comentario" method="post">
+                {% csrf_token %}
+                {{ formulario.non_field_errors }}
+                <div class="campo-comentario">
+                    {{ formulario.nombre.label_tag }}
+                    {{ formulario.nombre }}
+                    {{ formulario.nombre.errors }}
+                </div>
+                <div class="campo-comentario">
+                    {{ formulario.texto.label_tag }}
+                    {{ formulario.texto }}
+                    {{ formulario.texto.errors }}
+                </div>
+                <button type="submit">Publicar comentario</button>
+            </form>
+        </section>
     </main>
 {% endblock %}

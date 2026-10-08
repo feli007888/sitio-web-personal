@@ -85,3 +85,108 @@ body.modo-claro .blog-vacio {
         padding: 32px 20px;
     }
 }
+.comentarios {
+    max-width: 850px;
+    margin: 2rem auto 4rem;
+    padding: 2rem;
+    border: 1px solid rgba(147, 197, 253, 0.22);
+    border-radius: 16px;
+    background: #12243A;
+}
+
+.comentarios h2 {
+    margin: 0 0 1.25rem;
+    color: #BFDBFE;
+}
+
+.comentario {
+    padding: 1rem 0;
+    border-bottom: 1px solid #334155;
+}
+
+.comentario h3 {
+    display: inline;
+    margin-right: .75rem;
+    font-size: 1.05rem;
+    color: #FFFFFF;
+}
+
+.comentario time,
+.comentarios-vacios {
+    color: #CBD5E1;
+    font-size: .9rem;
+}
+
+.comentario p {
+    margin: .75rem 0 0;
+    overflow-wrap: anywhere;
+}
+
+.formulario-comentario {
+    display: grid;
+    gap: 1rem;
+}
+
+.campo-comentario {
+    display: grid;
+    gap: .4rem;
+}
+
+.campo-comentario input,
+.campo-comentario textarea {
+    width: 100%;
+    padding: .75rem;
+    border: 1px solid #64748B;
+    border-radius: 8px;
+    background: #0F172A;
+    color: #FFFFFF;
+    font: inherit;
+}
+
+.formulario-comentario button {
+    justify-self: start;
+    padding: .7rem 1rem;
+    border: 0;
+    border-radius: 8px;
+    background: #2563EB;
+    color: #FFFFFF;
+    font: inherit;
+    cursor: pointer;
+}
+
+.formulario-comentario button:hover {
+    background: #1D4ED8;
+}
+
+body.modo-claro .comentarios {
+    background: #F8FAFC;
+    color: #0F172A;
+}
+
+body.modo-claro .comentarios h2 {
+    color: #1D4ED8;
+}
+
+body.modo-claro .comentario time,
+body.modo-claro .comentarios-vacios {
+    color: #475569;
+}
+
+body.modo-claro .campo-comentario input,
+body.modo-claro .campo-comentario textarea {
+    background: #FFFFFF;
+    color: #0F172A;
+}
+
+body.modo-oscuro .comentarios h2,
+body.modo-oscuro .comentario h3,
+body.modo-oscuro .campo-comentario label {
+    color: #FFFFFF !important;
+}
+
+body.modo-oscuro .campo-comentario input,
+body.modo-oscuro .campo-comentario textarea {
+    background-color: #0F172A !important;
+    color: #FFFFFF !important;
+    caret-color: #FFFFFF;
+}
