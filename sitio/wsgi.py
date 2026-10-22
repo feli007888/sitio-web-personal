@@ -1,16 +1,13 @@
-"""
-WSGI config for sitio project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/6.1/howto/deployment/wsgi/
-"""
-
 import os
+import sys
+
+# Ruta a la carpeta de tu proyecto
+path = '/home/feli007888/sitio-web-personal'
+if path not in sys.path:
+    sys.path.append(path)
+
+# Apunta al archivo settings de tu carpeta 'sitio'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'sitio.settings'
 
 from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sitio.settings')
-
 application = get_wsgi_application()
